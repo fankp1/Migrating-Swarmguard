@@ -1,0 +1,13 @@
+---
+- name: Installing basic firmware and libraries for the proxy server!
+  hosts: all
+
+  tasks:
+    - name: "Update the repositories and upgrade them (apt-get update + apt-get upgrade)"
+      shell: sudo apt-get update && sudo apt-get upgrade -y
+        
+    - name: "Install the Mosquitto MQTT broker"
+      become: yes
+      apt:
+        name: mosquitto
+        state: present
