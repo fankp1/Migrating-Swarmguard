@@ -5,7 +5,8 @@
   tasks:
     - name: "Update the repositories and upgrade them (apt-get update + apt-get upgrade)"
       shell: sudo apt-get update && sudo apt-get upgrade -y
-        
+      become: yes
+      
     - name: "Install the Mosquitto MQTT broker"
       become: yes
       apt:
