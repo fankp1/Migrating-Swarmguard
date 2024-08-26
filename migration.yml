@@ -5,6 +5,7 @@
   tasks:
     - name: Update and upgrade apt packages
       become: yes
+      ignore_errors: true
       apt:
         upgrade: yes
         update_cache: yes
