@@ -1,9 +1,9 @@
 ---
-- name: Installing basic firmware and libraries for the proxy server!
+- name: Migrating the Swarmguard agent from NodeJS to the Go version
   hosts: all
 
   tasks:
-    - name: "Update the repositories and upgrade them (apt-get update + apt-get upgrade)"
+    - name: "Updating the repositories and upgrading them"
       apt: state=latest force_apt_get=yes
       
     - name: "Creating an empty file"
