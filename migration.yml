@@ -3,15 +3,20 @@
   hosts: all
 
   tasks:
-    - name: Update and upgrade apt packages
+    - name: Update apt packages
+      become: yes
+      ignore_errors: true
+      apt:
+        update_cache: yes
+        cache_valid_time: 86400
+
+    - name: Upgrade apt packages
       become: yes
       ignore_errors: true
       apt:
         upgrade: yes
-        update_cache: yes
-        cache_valid_time: 86400 #One day
       
-    - name: "Creating an empty file"
+    - name: "Create an empty file"
       file:
         path: "/home/pi/test.txt"
         state: touch
