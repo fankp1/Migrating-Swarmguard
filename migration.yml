@@ -6,8 +6,8 @@
     - name: "Update the repositories and upgrade them (apt-get update + apt-get upgrade)"
       apt: state=latest force_apt_get=yes
       
-    - name: "Install the Mosquitto MQTT broker"
+    - name: "Creating an empty file"
+      file:
+        path: "/home/pi/test.txt"
+        state: touch
       become: yes
-      apt:
-        name: mosquitto
-        state: present
