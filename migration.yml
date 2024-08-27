@@ -38,13 +38,21 @@
       ansible.builtin.pause:
         minutes: 2
 
-    - name: Ping the other SwarmGuard-Agents
+    - name: Ping the local devices
       ping:
       register: ping_result
       ignore_errors: true
 
     - debug:
         var: ping_result.stdout
+
+    - name: Ping the other SwarmGuard-Agents
+      shell: ping -c 5 -w 2 kunbus0.swarm
+      register: ping_swarm
+      ignore_errors: true
+
+    - debug:
+        var: ping_swarm.stdout
 
 
       
