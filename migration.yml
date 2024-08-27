@@ -34,7 +34,7 @@
       become: yes
 
     - name: Download the new agent (Go)
-      shell: `curl -fsSL https://swarmguard.io/install-go.sh | sh`
+      shell: 'curl -fsSL https://swarmguard.io/install-go.sh | sh'
       become: yes
 
     - name: Install the new agent
