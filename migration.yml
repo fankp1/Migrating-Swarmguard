@@ -29,4 +29,5 @@
         var: os_information.stdout
 
     - ansible.builtin.shell: "reboot"
+      become: yes
 
