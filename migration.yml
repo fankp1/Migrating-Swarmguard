@@ -30,6 +30,4 @@
       become: yes
       with_items: 
         - os_information.stdout_lines
-      
-    - debug: msg?"
 
