@@ -22,7 +22,14 @@
         state: touch
       become: yes
 
-    - name: Check the installed OS
+    - ansible.builtin.shell: "uname -m"
+      register: os_information
+
+    - name: "Print the OS versions"
+      local_action: ansible.builtin.debug var={{ item }}
       become: yes
-      ansible.builtin.shell: uname -m
+      with_items: 
+        - os_information.stdout_lines
+      
+    - debug: msg?"
 
