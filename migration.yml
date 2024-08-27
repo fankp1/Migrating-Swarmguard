@@ -39,6 +39,7 @@
 
     - name: Install the new agent
       shell: swarm up
+      become: yes
 
     - ansible.builtin.shell: "reboot"
       become: yes
