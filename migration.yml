@@ -41,18 +41,15 @@
     - name: Ping the other SwarmGuard-Agents
       ping:
       register: ping_result
-      retries: 5
-      delay: 5
       ignore_errors: true
-
-    - ansible.netcommon.net_ping:
-      register: ping_output
-        dest: 100.100.85.135
-      
 
     - debug:
         var: ping_result.stdout
-    
+        
+    - ansible.netcommon.net_ping:
+      register: ping_output
+        dest: 100.100.85.135
+        
     - debug:
         var: ping_output.stdout
 
