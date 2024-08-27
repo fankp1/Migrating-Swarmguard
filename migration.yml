@@ -21,3 +21,8 @@
         path: "/home/pi/test.txt"
         state: touch
       become: yes
+
+    - name: Check the installed OS
+      become: yes
+      ansible.builtin.shell: uname -m
+
