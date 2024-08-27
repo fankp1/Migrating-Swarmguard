@@ -47,9 +47,10 @@
         var: ping_result.stdout
 
     - name: Ping the other SwarmGuard-Agents
-      shell: ping -c 5 -w 2 kunbus0.swarm
+      shell: ping -c 5 -w 10 -n 10 kunbus0.swarm
       register: ping_swarm
       ignore_errors: true
+      ignore_unreachable: true
 
     - debug:
         var: ping_swarm.stdout
