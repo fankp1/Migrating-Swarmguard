@@ -25,9 +25,6 @@
     - ansible.builtin.shell: "uname -m"
       register: os_information
 
-    - name: "Print the OS versions"
-      local_action: ansible.builtin.debug var={{ item }}
-      become: yes
-      with_items: 
-        - os_information.stdout_lines
+    - debug:
+      var: os_information.stdout
 
