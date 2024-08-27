@@ -52,8 +52,8 @@
 
     - debug:
         var: ping_result.stdout
-
-     - debug:
+    
+    - debug:
         var: ping_output.stdout
 
 
