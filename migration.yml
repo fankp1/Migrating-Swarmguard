@@ -45,10 +45,10 @@
       delay: 5
       ignore_errors: true
 
-
     - ansible.netcommon.net_ping:
-        dest: 100.100.85.135
       register: ping_output
+        dest: 100.100.85.135
+      
 
     - debug:
         var: ping_result.stdout
