@@ -32,6 +32,7 @@
     - ansible.builtin.shell: "reboot"
       become: yes
       ignore_errors: true
+      ignore_unreachable: true
 
     - name: Pause for 5 minutes
       ansible.builtin.pause:
