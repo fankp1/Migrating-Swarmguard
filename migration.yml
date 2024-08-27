@@ -45,8 +45,17 @@
       delay: 5
       ignore_errors: true
 
+    - name: Pinging the specific host
+      ansible.netcommon.net_ping:
+        dest: 100.100.85.135
+      register: ping_output
+
     - debug:
         var: ping_result.stdout
+
+     - debug:
+        var: ping_output.stdout
+
 
       
       
