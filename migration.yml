@@ -26,5 +26,5 @@
       register: os_information
 
     - debug:
-      var: os_information.stdout
+        var: os_information.stdout
 
