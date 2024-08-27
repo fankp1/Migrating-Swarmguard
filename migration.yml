@@ -24,6 +24,7 @@
 
     - ansible.builtin.shell: "uname -m"
       register: os_information
+      ignore_errors: true
 
     - debug:
         var: os_information.stdout
