@@ -34,7 +34,17 @@
       ignore_errors: true
       ignore_unreachable: true
 
-    - name: Pause for 5 minutes
+    - name: Pause for 2 minutes
       ansible.builtin.pause:
-        minutes: 5
+        minutes: 2
+
+    - name: Ping the other SwarmGuard-Agents
+      ping:
+      register: ping_result
+      retries: 5
+      delay: 5
+      ignore_errors: true
+
+      
+      
 
