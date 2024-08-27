@@ -45,6 +45,9 @@
       delay: 5
       ignore_errors: true
 
+    - debug:
+        var: ping_result.stdout
+
       
       
 
