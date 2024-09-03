@@ -16,53 +16,6 @@
       apt:
         upgrade: yes
       
-    - name: "Create an empty file"
-      file:
-        path: "/home/pi/test.txt"
-        state: touch
-      become: yes
-
-    - ansible.builtin.shell: "uname -m"
-      register: os_information
-      ignore_errors: true
-
-    - debug:
-        var: os_information.stdout
-
-    - name: Delete the old SwarmGuard-Agent (NodeJS)
-      shell: swarm delete
-      become: yes
-
-    - name: Download the new agent (Go)
-      shell: 'curl -fsSL https://swarmguard.io/install-go.sh | sh'
-      become: yes
-
     - name: Install the new agent
-      shell: swarm up
+      shell: swarm upgrade
       become: yes
-
-    - ansible.builtin.shell: "reboot"
-      become: yes
-      ignore_errors: true
-      ignore_unreachable: true
-
-    - name: Pause for 2 minutes
-      ansible.builtin.pause:
-        minutes: 2
-
-    - name: Ping the local devices
-      ping:
-      register: ping_result
-      ignore_errors: true
-
-    - debug:
-        var: ping_result.stdout
-
-    - name: Ping the other SwarmGuard-Agents
-      shell: ping -c 15 kunbus0.swarm
-      register: ping_swarm
-      ignore_errors: true
-      ignore_unreachable: true
-
-    - debug:
-        var: ping_swarm.stdout
