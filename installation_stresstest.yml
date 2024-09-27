@@ -16,6 +16,7 @@
       apt:
         upgrade: yes
       
-    - name: Install the new agent
-      shell: swarm upgrade
-      become: yes
+    - name: Install git (if not already installed)
+      ansible.builtin.package:
+        name: git
+        state: present
