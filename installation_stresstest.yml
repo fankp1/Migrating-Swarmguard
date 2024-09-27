@@ -27,7 +27,7 @@
         repo: 'https://github.com/fankp1/Swarmguard.git'
         dest: '/home/pi/SwarmGuard'
         update: yes
-        force: no
+        force: yes
 
     - name: Create a new folder
       ansible.builtin.file:
