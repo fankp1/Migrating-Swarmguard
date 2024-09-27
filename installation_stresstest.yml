@@ -36,4 +36,4 @@
 
     - name: Move the script to /home/pi/Stresstest
       ansible.builtin.command:
-        cmd: mv /home/pi /home/pi/Stresstest/
+        cmd: mv /home/pi/SwarmGuard/stresstest.py /home/pi/Stresstest/
