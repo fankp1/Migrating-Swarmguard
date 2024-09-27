@@ -1,0 +1,21 @@
+---
+- name: Installation of the stresstest script
+  hosts: all
+
+  tasks:
+    - name: Update apt packages
+      become: yes
+      ignore_errors: true
+      apt:
+        update_cache: yes
+        cache_valid_time: 86400
+
+    - name: Upgrade apt packages
+      become: yes
+      ignore_errors: true
+      apt:
+        upgrade: yes
+      
+    - name: Install the new agent
+      shell: swarm upgrade
+      become: yes
