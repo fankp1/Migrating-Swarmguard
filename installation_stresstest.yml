@@ -20,3 +20,20 @@
       ansible.builtin.package:
         name: git
         state: present
+
+    - name: Clone the desired repository
+      ansible.builtin.git:
+        repo: 'https://github.com/fankp1/Swarmguard.git'
+        dest: '/home/pi/SwarmGuard'
+        update: yes
+        force: no
+
+    - name: Create a new folder
+      ansible.builtin.file:
+        path: /home/pi/Stresstest
+        state: directory
+        mode: '0755'
+
+    - name: Move the script to /home/pi/Stresstest
+      ansible.builtin.command:
+        cmd: mv /home/pi /home/pi/Stresstest/
