@@ -39,8 +39,8 @@
       ansible.builtin.command:
         cmd: mv /home/pi/SwarmGuard/stresstest.py /home/pi/Stresstest/
 
-     - name: Move the systemctl service file
-       ansible.builtin.command:
+    - name: Move the systemctl service file
+      ansible.builtin.command:
          cmd: mv /home/pi/SwarmGuard/stresstest.service /etc/systemd/system/
 
     - name: Run systemctl daemon-reload
