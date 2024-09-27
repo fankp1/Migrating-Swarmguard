@@ -1,0 +1,10 @@
+[Unit]
+Description=Stresstest service
+After=multi-user.target
+[Service]
+Type=simple
+User=pi
+Restart=always
+ExecStart=/usr/bin/python3 /home/pi/stresstest.py
+[Install]
+WantedBy=multi-user.target
